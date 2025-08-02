@@ -1,7 +1,7 @@
 version: '3.8'
 services:
   administration:
-    image: nervus-tech/nervus-administration:latest
+    image: ghcr.io/nervus-tech/nervus-administration:v1.0.0
     ports:
       - "8108:8080"
     environment:
@@ -20,7 +20,7 @@ services:
       - POSTGRES_USER=nervus_user
       - POSTGRES_PASSWORD=secure_password
     ports:
-      - "5432:5432"
+      - "5436:5432"
     volumes:
       - pgdata:/var/lib/postgresql/data
 volumes:
