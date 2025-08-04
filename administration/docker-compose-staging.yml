@@ -1,7 +1,8 @@
 version: '3.8'
 services:
-  staging:
+  administration-staging:
     image: ghcr.io/nervus-tech/nervus-administration:v1.0.0-staging
+    container_name: administration-staging
     ports:
       - "8109:8080"
     environment:
@@ -10,11 +11,17 @@ services:
       - SPRING_DATASOURCE_PASSWORD=secure_password
       - SPRING_JPA_HIBERNATE_DDL_AUTO=update
       - SPRING_JPA_SHOW_SQL=true
-      - SPRING_JPA_PROPERTIES_HIBERNATE_DEFAULT_SCHEMA=staging_admins
+      - HIBERNATE_DEFAULT_SCHEMA=staging_admins
     deploy:
       resources:
         limits:
           cpus: "0.5"
           memory: 1G
+    networks:
+      - nervus-infrastructure_default
     # depends_on removed - expects shared infrastructure Postgres
   # Postgres service removed - expects shared infrastructure 
+
+networks:
+  nervus-infrastructure_default:
+    external: true 

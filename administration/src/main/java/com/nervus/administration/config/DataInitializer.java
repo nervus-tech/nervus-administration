@@ -22,7 +22,7 @@ public class DataInitializer implements CommandLineRunner {
             Admin admin2 = new Admin("Bob Wilson", "bob@admin.com");
             adminRepository.save(admin1);
             adminRepository.save(admin2);
-            System.out.println("Seeded 2 admins into admins");
+            System.out.println("Seeded 2 admins into administration service");
         } else {
             System.out.println("Admins already seeded, skipping...");
         }
