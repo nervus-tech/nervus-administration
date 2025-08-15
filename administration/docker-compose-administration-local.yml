@@ -11,10 +11,9 @@ services:
       - HIBERNATE_DEFAULT_SCHEMA=local_admins
       - EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE=http://eureka-local:8761/eureka/
       - SPRING_JPA_SHOW_SQL=true
-      - TAG=v1.1.0-local
     networks:
-      - nervus-local-network
+      - nervus-network
 
 networks:
-  nervus-local-network:
+  nervus-network:
     external: true
